@@ -33,7 +33,7 @@ const PlatformIconsList = ({ platforms }: Props) => {
   return (
     <SimpleGrid columns={4} spacing={4} marginY="10px">
       {platforms.map((platform) => (
-        <Icon as={iconMap[platform.slug]} color='gray.500' />
+        <Icon key={platform.id} as={iconMap[platform.slug]} color='gray.500' />
       ))}
     </SimpleGrid>
   );
