@@ -5,12 +5,12 @@ interface Props {
   children: ReactNode;
 }
 
-const GameCardContainer = ({ children }: Props) => {
+const GenreListContainer = ({ children }: Props) => {
   return (
-    <Box borderRadius={10} overflow="hidden">
+    <Box borderRadius={8} overflow="hidden">
       {children}
     </Box>
   );
 };
 
-export default GameCardContainer;
+export default GenreListContainer;
