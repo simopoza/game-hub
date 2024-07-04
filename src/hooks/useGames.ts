@@ -17,20 +17,15 @@ export interface Game {
 	rating_top: number;
 }
 
-const useGames = (gameQuery : GameQuery) => useQuery<FetchingData<Game>, Error>({
-	queryKey: ['games', gameQuery],
-	queryFn: () => 
-		apiClient
-			.get<FetchingData<Game>>('/games', {
-				params: {
-					genres: gameQuery.genre?.id, 
-					parent_platforms: gameQuery.platform?.id,
-					ordering: gameQuery.sortOrder,
-					search: gameQuery.searchInput,
-				}
-			})
-			.then(res => res.data),
-	enabled: !!gameQuery,
-});
+const useGames = (gameQuery : GameQuery) => {
+	
+	const gameService = new apiClient<Game>('/games', gameQuery);
+	return useQuery<FetchingData<Game>, Error>({
+	
+		queryKey: ['games', gameQuery],
+		queryFn: gameService.getData,
+		enabled: !!gameQuery,
+	});
+}
 
 export default useGames;
