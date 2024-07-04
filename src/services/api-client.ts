@@ -4,6 +4,7 @@ import { GameQuery } from "../App";
 export interface FetchingData<T>
 {
 	count: number;
+  next: string | null;
 	results: T[];
 }
 
@@ -16,23 +17,14 @@ const axiosInstance = axios.create({
 
 class apiClient<T> {
   endPoint: string;
-  gameQuery?: GameQuery;
 
-  constructor(endPoint: string, gameQuery?: GameQuery){
+  constructor(endPoint: string){
     this.endPoint = endPoint;
-    if (gameQuery) this.gameQuery = gameQuery;
   }
 
-  getData = () => {
+  getData = (config: AxiosRequestConfig) => {
     return axiosInstance
-            .get<FetchingData<T>>(this.endPoint, {
-              params: {
-                genres: this.gameQuery?.genre?.id,
-                parent_platforms: this.gameQuery?.platform?.id,
-                ordering: this.gameQuery?.sortOrder,
-                search: this.gameQuery?.searchInput,
-              },
-            })
+            .get<FetchingData<T>>(this.endPoint, config)
             .then(res => res.data)
   }
 }
