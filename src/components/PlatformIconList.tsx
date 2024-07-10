@@ -11,14 +11,14 @@ import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { Icon, SimpleGrid } from "@chakra-ui/react";
 import { IconType } from "react-icons";
-import { Platform } from "../hooks/usePlatforms";
+import { Platform } from "../entities/Platform";
 
 interface Props {
   platforms: Platform[];
 }
 
 const PlatformIconsList = ({ platforms }: Props) => {
-  const iconMap : { [key: string]: IconType } = {
+  const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
@@ -33,7 +33,7 @@ const PlatformIconsList = ({ platforms }: Props) => {
   return (
     <SimpleGrid columns={4} spacing={4} marginY="10px">
       {platforms.map((platform) => (
-        <Icon key={platform.id} as={iconMap[platform.slug]} color='gray.500' />
+        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
       ))}
     </SimpleGrid>
   );
