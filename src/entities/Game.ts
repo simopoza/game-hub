@@ -1,6 +1,10 @@
 import { Platform } from "./Platform";
 import { genreDate } from "../hooks/useGames";
 
+export interface publishers{
+	id: number;
+	name: string;
+}
 
 export interface Game {
 	id: number;
@@ -12,4 +16,5 @@ export interface Game {
 	metacritic: number;
 	genres: genreDate[];
 	rating_top: number;
+	publishers: publishers[];
 }
