@@ -32,6 +32,12 @@ class apiClient<T> {
             .get<T>(this.endPoint + '/' + id)
             .then((res) => res.data)
   }
+
+  getThriller = (id: number) => {
+    return axiosInstance
+            .get<T>(this.endPoint + '/' + id + '/movies')
+            .then(res => res.data);
+  }
 }
 
 export default apiClient;
