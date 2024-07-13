@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   HStack,
   Image,
@@ -23,7 +24,7 @@ const GenreList = () => {
     <List>
       {data?.results.map((genre) => (
         <ListItem key={genre.id} paddingY="5px">
-          <HStack>
+          <HStack align="start">
             <Image
               boxSize={"28px"}
               borderRadius={8}
@@ -34,6 +35,8 @@ const GenreList = () => {
               onClick={() => setGenreId(genre.id)}
               fontSize="lg"
               variant="link"
+              whiteSpace="normal"
+              textAlign="left"
             >
               {genre.name}
             </Button>
