@@ -8,13 +8,13 @@ const ErrorPage = () => {
 
   return (
     <>
-			<NavBar/>
-			<Box padding={5}>
-      	<Heading>Oops....</Heading>
-				<Text>
-					{isErrorRoute ? "This Page does not exist" : "Error In The App"}
-				</Text>
-			</Box>
+      <NavBar />
+      <Box padding={5}>
+        <Heading>Oops....</Heading>
+        <Text>
+          {isErrorRoute ? "This Page does not exist" : "Error In The App"}
+        </Text>
+      </Box>
     </>
   );
 };
