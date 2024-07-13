@@ -1,8 +1,8 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import apiClient, { FetchingData } from "../services/api-client";
 import ms from "ms";
 import useGameQueryStore from "../Stores/GameStore";
-import { Game } from "../entities/Game";
+import Game from "../entities/Game";
+import apiClient, { FetchingData } from "../services/api-client";
 
 export interface genreDate{
 	name: string;
